@@ -5,6 +5,10 @@ from Request import serverRequest
 import Functions.AutoScreenShot as AutoScreenShot
 
 class Ui_Dialog(object):
+    def __init__(self):
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.exeBtnClick)
+        
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(488, 310)
@@ -45,8 +49,7 @@ class Ui_Dialog(object):
         ###########################################################################################################
         ############## 버튼 설정 start ##############################################################################
         ###########################################################################################################
-        
-        self.executeButton.clicked.connect(self.exeBtnClick)   # 'executeButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
+        self.executeButton.clicked.connect(self.start)   # 'executeButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
         # executionButton 색상 설정
         self.executeButton.setStyleSheet("""
             QPushButton {
@@ -61,7 +64,7 @@ class Ui_Dialog(object):
             }
         """)
         
-        self.stopButton.clicked.connect(self.stopBtnClick)   # 'stopButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
+        self.stopButton.clicked.connect(self.stop)   # 'stopButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
         # stopButton 색상 설정
         self.stopButton.setStyleSheet("""
             QPushButton {
@@ -93,11 +96,26 @@ class Ui_Dialog(object):
         self.executeButton.setText(_translate("Dialog", "실행"))
         self.stopButton.setText(_translate("Dialog", "멈춤"))
         
+    ###########################################################################################################
+    ###########################################################################################################
+    ############# 버튼클릭 함수 선언 ###############################################################################
+    
+    def start(self):
+        print("Starting")
+        self.timer.start(1000)  # 1초마다 exeBtnClick 호출
+
+    def stop(self):
+        print("Stopping")
+        self.timer.stop()
+        
     def exeBtnClick(self):
         print("exe버튼이 클릭되었습니다.")
         
     def stopBtnClick(self):
         print("stop버튼이 클릭되었습니다.")
+    ############# 버튼클릭 함수 선언 end ###########################################################################
+    ###########################################################################################################
+    ###########################################################################################################
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
