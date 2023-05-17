@@ -2,18 +2,13 @@ import os
 import time
 import pyautogui
 
-# 스크린샷을 저장할 폴더 경로
-screenshot_directory = "ScreenShot_img"
-if not os.path.exists(screenshot_directory):
-    os.makedirs(screenshot_directory)
+def capture_screenshot(screenshot_directory="ScreenShot_img", screenshot_file="IMGforOCR.jpg", interval=5):
+    # 스크린샷을 저장할 폴더 경로
+    if not os.path.exists(screenshot_directory):
+        os.makedirs(screenshot_directory)
 
-interval = 5  # 스크린샷 간격(초)
-
-# 스크린샷 파일 경로 설정
-screenshot_path = os.path.join(screenshot_directory, "IMG.jpg")
-
-while True:
-    current_time = time.time()
+    # 스크린샷 파일 경로 설정
+    screenshot_path = os.path.join(screenshot_directory, screenshot_file)
 
     # 스크린샷 캡처 후 이미지 모드를 RGB로 변환하여 저장
     screenshot = pyautogui.screenshot()

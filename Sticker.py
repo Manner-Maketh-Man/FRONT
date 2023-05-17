@@ -108,8 +108,13 @@ class Sticker(QtWidgets.QMainWindow):
 
         self.setGeometry(self.xy[0], self.xy[1], w, h)
 
-    def mouseDoubleClickEvent(self, e):
-        QtWidgets.qApp.quit()
+    # # 마우스 더블클릭 시 앱 종료, for Sticker test
+    # def mouseDoubleClickEvent(self, e):
+    #     QtWidgets.qApp.quit()
+    
+    # Sticker를 제거하는 메서드
+    def remove_sticker(self):
+        self.close()
         
         
 if __name__ == '__main__':

@@ -40,7 +40,10 @@ class Ui_Dialog(object):
         self.executeLayout.addLayout(self.button)
         self.largestLayout.addLayout(self.executeLayout)
         
-        ############## 버튼 설정
+        ###########################################################################################################
+        ############## 버튼 설정 ####################################################################################
+        ###########################################################################################################
+        
         self.executeButton.clicked.connect(self.btnClick)   # 'executeButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
         # executionButton 색상 설정
         self.executeButton.setStyleSheet("""
@@ -71,6 +74,10 @@ class Ui_Dialog(object):
             }
         """)
         
+        ############# 버튼설정 완료 ##################################################################################
+        ###########################################################################################################
+        ###########################################################################################################
+        
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -83,6 +90,7 @@ class Ui_Dialog(object):
         self.executeLabel.setText(_translate("Dialog", "감정분석 실행"))
         self.executeButton.setText(_translate("Dialog", "실행"))
         self.stopButton.setText(_translate("Dialog", "멈춤"))
+        
         
     def btnClick(self):
         print("버튼이 클릭되었습니다.")
