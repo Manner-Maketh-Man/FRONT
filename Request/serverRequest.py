@@ -4,7 +4,7 @@ import Request.ClovaApiConnection as ClovaApiConnection
 
 def send_request():
     # 서버 URL
-    url = 'https://c774-211-198-109-254.ngrok-free.app/apis/process_file/'
+    url = 'https://c774-211-198-109-254.ngrok-free.app/apis/process_json/'
 
     # 함수 호출
     image_file = 'ScreenShot_img/IMGforOCR.jpg'
