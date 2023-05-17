@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QDialog
 import sys
 from Request import serverRequest
-import AutoScreenShot
+import Functions.AutoScreenShot as AutoScreenShot
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
