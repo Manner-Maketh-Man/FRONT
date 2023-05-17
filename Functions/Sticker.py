@@ -116,28 +116,28 @@ class Sticker(QtWidgets.QMainWindow):
     def remove_sticker(self):
         self.close()
         
-        
-if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
+# for test    
+# if __name__ == '__main__':
+#     app = QtWidgets.QApplication(sys.argv)
 
-    s = Sticker('gif/left.gif', xy=[-80, 200], on_top=True)
+#     s = Sticker('gif/left.gif', xy=[-80, 200], on_top=True)
 
-    s1 = Sticker('gif/amongus/red_vent.gif', xy=[-30, 700], size=0.3, on_top=True)
+#     s1 = Sticker('gif/amongus/red_vent.gif', xy=[-30, 700], size=0.3, on_top=True)
 
-    s2 = Sticker('gif/amongus/orange.gif', xy=[200, 700], size=0.3, on_top=True)
+#     s2 = Sticker('gif/amongus/orange.gif', xy=[200, 700], size=0.3, on_top=True)
 
 
-    s3 = Sticker('gif/amongus/blue_green.gif', xy=[400, 700], size=1.0, on_top=True)
+#     s3 = Sticker('gif/amongus/blue_green.gif', xy=[400, 700], size=1.0, on_top=True)
 
-    s4 = Sticker('gif/amongus/mint.gif', xy=[600, 700], size=0.2, on_top=True)
-    s4.walk_diff(from_xy_diff=[-100, 0], to_xy_diff=[100, 0], speed=120)
+#     s4 = Sticker('gif/amongus/mint.gif', xy=[600, 700], size=0.2, on_top=True)
+#     s4.walk_diff(from_xy_diff=[-100, 0], to_xy_diff=[100, 0], speed=120)
 
-    s5 = Sticker('gif/amongus/brown.gif', xy=[800, 700], size=0.75, on_top=True)
+#     s5 = Sticker('gif/amongus/brown.gif', xy=[800, 700], size=0.75, on_top=True)
 
-    s6 = Sticker('gif/amongus/yellow.gif', xy=[1000, 700], size=0.75, on_top=True)
-    # s6.walk(from_xy=[0, 800], to_xy=[1850, 800], speed=240)
+#     s6 = Sticker('gif/amongus/yellow.gif', xy=[1000, 700], size=0.75, on_top=True)
+#     # s6.walk(from_xy=[0, 800], to_xy=[1850, 800], speed=240)
 
-    s7 = Sticker('gif/amongus/magenta.gif', xy=[1200, 700], size=0.5, on_top=True)
-    s7.walk_diff(from_xy_diff=[-100, 0], to_xy_diff=[100, 0], speed=180)
+#     s7 = Sticker('gif/amongus/magenta.gif', xy=[1200, 700], size=0.5, on_top=True)
+#     s7.walk_diff(from_xy_diff=[-100, 0], to_xy_diff=[100, 0], speed=180)
 
-    sys.exit(app.exec_())
+#     sys.exit(app.exec_())

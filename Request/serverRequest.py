@@ -1,6 +1,6 @@
 import requests
 import json
-import ClovaApiConnection
+import Request.ClovaApiConnection as ClovaApiConnection
 
 def send_request():
     # 서버 URL
@@ -30,4 +30,4 @@ def send_request():
         print("Error:", response.status_code)
 
 # 함수 호출
-send_request()
+# send_request()

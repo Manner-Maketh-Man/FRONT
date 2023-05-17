@@ -1,6 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QDialog
 import sys
+from Request import serverRequest
+import AutoScreenShot
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -41,10 +43,10 @@ class Ui_Dialog(object):
         self.largestLayout.addLayout(self.executeLayout)
         
         ###########################################################################################################
-        ############## 버튼 설정 ####################################################################################
+        ############## 버튼 설정 start ##############################################################################
         ###########################################################################################################
         
-        self.executeButton.clicked.connect(self.btnClick)   # 'executeButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
+        self.executeButton.clicked.connect(self.exeBtnClick)   # 'executeButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
         # executionButton 색상 설정
         self.executeButton.setStyleSheet("""
             QPushButton {
@@ -59,7 +61,7 @@ class Ui_Dialog(object):
             }
         """)
         
-        self.stopButton.clicked.connect(self.btnClick)   # 'stopButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
+        self.stopButton.clicked.connect(self.stopBtnClick)   # 'stopButton'이 클릭되면 'btnClick'이 실행되게 설정합니다.
         # stopButton 색상 설정
         self.stopButton.setStyleSheet("""
             QPushButton {
@@ -74,7 +76,7 @@ class Ui_Dialog(object):
             }
         """)
         
-        ############# 버튼설정 완료 ##################################################################################
+        ############# 버튼설정 end ##################################################################################
         ###########################################################################################################
         ###########################################################################################################
         
@@ -91,9 +93,11 @@ class Ui_Dialog(object):
         self.executeButton.setText(_translate("Dialog", "실행"))
         self.stopButton.setText(_translate("Dialog", "멈춤"))
         
+    def exeBtnClick(self):
+        print("exe버튼이 클릭되었습니다.")
         
-    def btnClick(self):
-        print("버튼이 클릭되었습니다.")
+    def stopBtnClick(self):
+        print("stop버튼이 클릭되었습니다.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
