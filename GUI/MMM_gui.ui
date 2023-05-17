@@ -22,54 +22,58 @@
      <height>311</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="largestLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="label">
+     <layout class="QVBoxLayout" name="instructionLayout">
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="instruction1">
         <property name="text">
          <string>Manners Maketh Man</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="instruction3">
         <property name="text">
          <string>1. 분석을 수행할 카카오톡 화면을 전체화면으로 변경한다.</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="instruction2">
         <property name="text">
-         <string>2. 아래 감정분석 Start 버튼을 누른다.</string>
+         <string>2. 아래 감정분석 실행 버튼을 누른다.</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="executeLabel">
-      <property name="text">
-       <string>감정분석 실행</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QCommandLinkButton" name="executeYes">
+     <layout class="QVBoxLayout" name="executeLayout">
+      <item alignment="Qt::AlignVCenter">
+       <widget class="QLabel" name="executeLabel">
         <property name="text">
-         <string>Start</string>
+         <string>감정분석 실행</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCommandLinkButton" name="executeNo">
-        <property name="text">
-         <string>Stop</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="button">
+        <item alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="executeButton">
+          <property name="text">
+           <string>실행</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="stopButton">
+          <property name="text">
+           <string>멈춤</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
