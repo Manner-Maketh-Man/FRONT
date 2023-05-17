@@ -4,8 +4,8 @@ import time
 import base64
 import json
 
-api_url = 'https://6vscc0s85m.apigw.ntruss.com/custom/v1/22584/e850e8dee292beeaf2c81d10985825dff13bb57786964eee183fc68a522810d3/infer'
-secret_key = 'Q2RYaGplQmhUaHpCbnlVWkVRZGlwaHVDeHJFVm5YY3A='
+api_url = 'https://6vscc0s85m.apigw.ntruss.com/custom/v1/22615/bfb5ec99eba9f8ad32b3178b52c96769efcf7ebb0e172be48d160e085a55c1db/general'
+secret_key = 'YmN5dlRVRHBseFFmQVN3bWRnR1NYSHpjZ2plV2RQU3o='
 # image_url = ''
 
 image_file = 'ScreenShot_img/IMGforOCR.jpg'
