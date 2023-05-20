@@ -1,8 +1,7 @@
 import os
-import time
 import pyautogui
 
-def capture_screenshot(screenshot_directory="ScreenShot_img", screenshot_file="IMGforOCR.jpg", interval=5):
+def capture_screenshot(screenshot_directory="ScreenShot_img", screenshot_file="IMGforOCR.jpg"):
     # 스크린샷을 저장할 폴더 경로
     if not os.path.exists(screenshot_directory):
         os.makedirs(screenshot_directory)
@@ -20,6 +19,3 @@ def capture_screenshot(screenshot_directory="ScreenShot_img", screenshot_file="I
 
     # 새로운 스크린샷 저장
     screenshot.save(screenshot_path)
-
-    # 다음 스크린샷을 위해 일정 시간 동안 대기
-    time.sleep(interval)

@@ -115,8 +115,30 @@ class Sticker(QtWidgets.QMainWindow):
     # Sticker를 제거하는 메서드
     def remove_sticker(self):
         self.close()
+
+# # 스티커 출력함수
+# def show_sticker(sticker_number):
+#     sticker_map = {
+#         0: 'gif/left.gif',
+#         1: 'gif/amongus/red_vent.gif',
+#         2: 'gif/amongus/orange.gif',
+#         3: 'gif/amongus/blue_green.gif',
+#         4: 'gif/amongus/mint.gif',
+#         5: 'gif/amongus/brown.gif',
+#         6: 'gif/amongus/yellow.gif',
+#         7: 'gif/amongus/magenta.gif',
+#     }
+
+#     try:
+#         sticker_path = sticker_map[sticker_number]
+#         sticker = Sticker(sticker_path, xy=[600, 700], size=0.75, on_top=True)
+#         return sticker
+#     except KeyError:
+#         print(f"No sticker found for number: {sticker_number}")
+#         return None
         
-# for test    
+
+# # for test    
 # if __name__ == '__main__':
 #     app = QtWidgets.QApplication(sys.argv)
 

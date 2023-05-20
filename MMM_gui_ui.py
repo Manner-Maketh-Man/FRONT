@@ -1,13 +1,19 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QDialog
+import json
 import sys
+import time
 from Request import serverRequest
 import Functions.AutoScreenShot as AutoScreenShot
+import Functions.Sticker as STICKER
 
 class Ui_Dialog(object):
+    
     def __init__(self):
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.exeBtnClick)
+        self.sticker_instance = None
+        self.a = 0
         
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -102,15 +108,41 @@ class Ui_Dialog(object):
     
     def start(self):
         print("Starting")
-        self.timer.start(1000)  # 1초마다 exeBtnClick 호출
+        interval = 5    # interval n초마다 exeBtnClick 호출
+        self.timer.start(interval*1000)
 
     def stop(self):
         print("Stopping")
         self.timer.stop()
-        
+    
     # 반복 동작할 함수 선언
     def exeBtnClick(self):
         print("exe버튼이 클릭되었습니다.")
+        # print("ScreenShot 실행")
+        # AutoScreenShot.capture_screenshot()
+        # print("ScreenShot 완료")
+        # print("Request 전송")
+        # response = serverRequest.send_request()  ## returns json
+        response = {'response_data':3}
+        print("Response: ", response['response_data'])
+        # gif. 파일 경로 설정
+        sticker_map = {
+            0: 'gif/left.gif',
+            1: 'gif/amongus/red_vent.gif',
+            2: 'gif/amongus/orange.gif',
+            3: 'gif/amongus/blue_green.gif',
+            4: 'gif/amongus/mint.gif',
+            5: 'gif/amongus/brown.gif',
+            6: 'gif/amongus/yellow.gif',
+            7: 'gif/amongus/magenta.gif',
+        }
+        sticker_path = sticker_map[response['response_data']+self.a]
+        sticker = STICKER.Sticker(sticker_path, xy=[600, 600], size=1.0, on_top=True)
+        self.sticker_instance = sticker
+        self.a=1+self.a
+        
+
+        
     
     ############# 버튼클릭 함수 선언 end ###########################################################################
     ###########################################################################################################
