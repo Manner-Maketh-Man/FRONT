@@ -5,7 +5,7 @@ import base64
 import json
 
 def send_OCR_request(image_file):
-    api_url = 'https://6vscc0s85m.apigw.ntruss.com/custom/v1/22615/bfb5ec99eba9f8ad32b3178b52c96769efcf7ebb0e172be48d160e085a55c1db/general'
+    api_url = 'https://1x797hyzhz.apigw.ntruss.com/custom/v1/22615/bfb5ec99eba9f8ad32b3178b52c96769efcf7ebb0e172be48d160e085a55c1db/general'
     secret_key = 'YmN5dlRVRHBseFFmQVN3bWRnR1NYSHpjZ2plV2RQU3o='
 
     with open(image_file,'rb') as f:

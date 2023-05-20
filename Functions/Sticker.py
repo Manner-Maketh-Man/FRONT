@@ -148,10 +148,10 @@ class Sticker(QtWidgets.QMainWindow):
 
 #     s2 = Sticker('gif/amongus/orange.gif', xy=[200, 700], size=0.3, on_top=True)
 
-
 #     s3 = Sticker('gif/amongus/blue_green.gif', xy=[400, 700], size=1.0, on_top=True)
 
 #     s4 = Sticker('gif/amongus/mint.gif', xy=[600, 700], size=0.2, on_top=True)
+
 #     s4.walk_diff(from_xy_diff=[-100, 0], to_xy_diff=[100, 0], speed=120)
 
 #     s5 = Sticker('gif/amongus/brown.gif', xy=[800, 700], size=0.75, on_top=True)

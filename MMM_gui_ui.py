@@ -107,7 +107,7 @@ class Ui_Dialog(object):
     
     def start(self):
         print("Starting")
-        interval = 5    # interval n초마다 exeBtnClick 호출
+        interval = 10    # OCR 수행 간격 (현재 5초)
         self.timer.start(interval*1000)
 
     def stop(self):
@@ -127,25 +127,28 @@ class Ui_Dialog(object):
         
     # gif. 파일 경로 설정
         sticker_map = {
-            0: 'gif/left.gif',
-            1: 'gif/amongus/red_vent.gif',
+            # 0: "sadness",
+            # 1: "fear",
+            # 2: "disgust",
+            # 3: "neutral",
+            # 4: "happiness",
+            # 5: "angry",
+            # 6: "surprise"
+            0: 'gif/amongus/yellow.gif',
+            1: 'gif/amongus/magenta.gif',
             2: 'gif/amongus/orange.gif',
-            3: 'gif/amongus/blue_green.gif',
+            3: 'gif/amongus/brown.gif',
             4: 'gif/amongus/mint.gif',
-            5: 'gif/amongus/brown.gif',
-            6: 'gif/amongus/yellow.gif',
-            7: 'gif/amongus/magenta.gif',
+            5: 'gif/amongus/blue_green.gif',
+            6: 'gif/amongus/red_vent.gif',
         }
         sticker_path = sticker_map[response['response_data']]
 
 # TODO: 사이즈 별 mapping 및 스티커별 동작 커스터마이징
     # Sticker 출력
-        sticker = STICKER.Sticker(sticker_path, xy=[600, 600], size=1.0, on_top=True)
+        sticker = STICKER.Sticker(sticker_path, xy=[600, 500], size=1.0, on_top=True)
         self.sticker_instance = sticker
-        
 
-        
-    
     ############# 버튼클릭 함수 선언 end ###########################################################################
     ###########################################################################################################
     ###########################################################################################################

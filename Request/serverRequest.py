@@ -26,10 +26,9 @@ def send_request():
     if response.status_code == 200:
         response_data = response.json()
         print(response_data)
+        return response_data
     else:
         print("Error:", response.status_code)
-    
-    return response_data
 
 # 함수 호출
-# send_request()
+send_request()
