@@ -13,7 +13,6 @@ class Ui_Dialog(object):
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.exeBtnClick)
         self.sticker_instance = None
-        self.a = 0
         
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -114,18 +113,19 @@ class Ui_Dialog(object):
     def stop(self):
         print("Stopping")
         self.timer.stop()
+        self.sticker_instance.remove_sticker()
     
     # 반복 동작할 함수 선언
     def exeBtnClick(self):
         print("exe버튼이 클릭되었습니다.")
-        # print("ScreenShot 실행")
-        # AutoScreenShot.capture_screenshot()
-        # print("ScreenShot 완료")
-        # print("Request 전송")
-        # response = serverRequest.send_request()  ## returns json
-        response = {'response_data':3}
+        print("ScreenShot 실행")
+        AutoScreenShot.capture_screenshot()
+        print("ScreenShot 완료")
+        print("Request 전송")
+        response = serverRequest.send_request()  ## returns json
         print("Response: ", response['response_data'])
-        # gif. 파일 경로 설정
+        
+    # gif. 파일 경로 설정
         sticker_map = {
             0: 'gif/left.gif',
             1: 'gif/amongus/red_vent.gif',
@@ -136,10 +136,12 @@ class Ui_Dialog(object):
             6: 'gif/amongus/yellow.gif',
             7: 'gif/amongus/magenta.gif',
         }
-        sticker_path = sticker_map[response['response_data']+self.a]
+        sticker_path = sticker_map[response['response_data']]
+
+# TODO: 사이즈 별 mapping 및 스티커별 동작 커스터마이징
+    # Sticker 출력
         sticker = STICKER.Sticker(sticker_path, xy=[600, 600], size=1.0, on_top=True)
         self.sticker_instance = sticker
-        self.a=1+self.a
         
 
         
