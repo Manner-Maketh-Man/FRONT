@@ -127,13 +127,13 @@ class Ui_Dialog(object):
         
     # gif. 파일 경로 설정
         sticker_map = {
-            # 0: "sadness",
-            # 1: "fear",
-            # 2: "disgust",
-            # 3: "neutral",
-            # 4: "happiness",
-            # 5: "angry",
-            # 6: "surprise"
+            # 0: sadness,
+            # 1: fear,
+            # 2: disgust,
+            # 3: neutral,
+            # 4: happiness,
+            # 5: angry,
+            # 6: surprise
             0: 'gif/amongus/yellow.gif',
             1: 'gif/amongus/magenta.gif',
             2: 'gif/amongus/orange.gif',
