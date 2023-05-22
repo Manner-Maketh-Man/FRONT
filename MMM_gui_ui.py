@@ -13,6 +13,7 @@ class Ui_Dialog(object):
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.exeBtnClick)
         self.sticker_instance = None
+        self.forDebug = 0
         
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -107,8 +108,11 @@ class Ui_Dialog(object):
     
     def start(self):
         print("Starting")
-        interval = 10    # OCR 수행 간격 (현재 5초)
+        interval = 1    # OCR 수행 간격 (현재 5초)
         self.timer.start(interval*1000)
+        
+        # for Debug
+        self.forDebug = 0
 
     def stop(self):
         print("Stopping")
@@ -119,13 +123,16 @@ class Ui_Dialog(object):
     def exeBtnClick(self):
         print("exe버튼이 클릭되었습니다.")
         print("ScreenShot 실행")
-        AutoScreenShot.capture_screenshot()
+        # AutoScreenShot.capture_screenshot()
         print("ScreenShot 완료")
         print("Request 전송")
-        response = serverRequest.send_request()  ## returns json
+        # response = serverRequest.send_request()  ## returns json
+        # for Debug
+        response = {'response_data':0+self.forDebug}
+        self.forDebug=self.forDebug+1
         print("Response: ", response['response_data'])
         
-    # gif. 파일 경로 설정
+    # gif.별 파일 경로 설정
         sticker_map = {
             # 0: sadness,
             # 1: fear,
@@ -134,19 +141,57 @@ class Ui_Dialog(object):
             # 4: happiness,
             # 5: angry,
             # 6: surprise
-            0: 'gif/amongus/yellow.gif',
-            1: 'gif/amongus/magenta.gif',
-            2: 'gif/amongus/orange.gif',
-            3: 'gif/amongus/brown.gif',
-            4: 'gif/amongus/mint.gif',
-            5: 'gif/amongus/blue_green.gif',
-            6: 'gif/amongus/red_vent.gif',
+            0: 'gif/project/sadness.gif',
+            1: 'gif/project/fear.gif',
+            2: 'gif/project/disgust.gif',
+            3: 'gif/project/neutral.gif',
+            4: 'gif/project/happiness.gif',
+            5: 'gif/project/angry.gif',
+            6: 'gif/project/surprise.gif',
         }
         sticker_path = sticker_map[response['response_data']]
+        
+    # gif.별 출력 위치 설정
+        sticker_xy_map = {
+            # 0: 'gif/project/sadness.gif',
+            # 1: 'gif/project/fear.gif',
+            # 2: 'gif/project/disgust.gif',
+            # 3: 'gif/project/neutral.gif',
+            # 4: 'gif/project/happiness.gif',
+            # 5: 'gif/project/angry.gif',
+            # 6: 'gif/project/surprise.gif',
+            0: [600, 500],
+            1: [530, 400],
+            2: [600, 500],
+            3: [600, 500],
+            4: [600, 500],
+            5: [550, 400],
+            6: [600, 500],
+        }
+        sticker_xy_val = sticker_xy_map[response['response_data']]
+        
+    # gif.별 출력 위치 설정
+        sticker_size_map = {
+            # 0: 'gif/project/sadness.gif',
+            # 1: 'gif/project/fear.gif',
+            # 2: 'gif/project/disgust.gif',
+            # 3: 'gif/project/neutral.gif',
+            # 4: 'gif/project/happiness.gif',
+            # 5: 'gif/project/angry.gif',
+            # 6: 'gif/project/surprise.gif',
+            0: 0.65,
+            1: 0.75,
+            2: 0.5,
+            3: 0.75,
+            4: 0.5,
+            5: 1.5,
+            6: 0.65,
+        }
+        sticker_size_val = sticker_size_map[response['response_data']]
 
 # TODO: 사이즈 별 mapping 및 스티커별 동작 커스터마이징
     # Sticker 출력
-        sticker = STICKER.Sticker(sticker_path, xy=[600, 500], size=1.0, on_top=True)
+        sticker = STICKER.Sticker(img_path = sticker_path, xy=sticker_xy_val, size=sticker_size_val, on_top=True)
         self.sticker_instance = sticker
 
     ############# 버튼클릭 함수 선언 end ###########################################################################

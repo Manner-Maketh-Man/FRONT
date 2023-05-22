@@ -13,10 +13,10 @@ def send_request():
     # 데이터를 필요 시 JSON 형식으로 변환
     json_data = OCR_response.json()
     print(json_data)
-    # # json_data를 .json 파일로 저장
-    # with open('ScreenShot_img/data.json', 'w', encoding='utf-8') as json_file:
-    #     json.dump(json_data, json_file, ensure_ascii=False, indent=4)
-    #     print("JSON 파일이 성공적으로 저장되었습니다.")
+    # json_data를 .json 파일로 저장
+    with open('ScreenShot_img/data.json', 'w', encoding='utf-8') as json_file:
+        json.dump(json_data, json_file, ensure_ascii=False, indent=4)
+        print("JSON 파일이 성공적으로 저장되었습니다.")
 
     # 요청 헤더 정의 (JSON 형식의 데이터를 보내기 때문에 'Content-Type'을 'application/json'으로 설정)
     headers = {'Content-Type': 'application/json'}
@@ -31,3 +31,6 @@ def send_request():
         return response_data
     else:
         print("Error:", response.status_code)
+
+# for debug
+# send_request()
