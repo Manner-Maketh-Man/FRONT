@@ -13,7 +13,7 @@ class Ui_Dialog(object):
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.exeBtnClick)
         self.sticker_instance = None
-        self.forDebug = 0
+        # self.forDebug = 0
         
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -108,11 +108,11 @@ class Ui_Dialog(object):
     
     def start(self):
         print("Starting")
-        interval = 1    # OCR 수행 간격 (현재 5초)
+        interval = 10    # OCR 수행 간격 (현재 5초)
         self.timer.start(interval*1000)
         
-        # for Debug
-        self.forDebug = 0
+        ## for Debug
+        # self.forDebug = 0
 
     def stop(self):
         print("Stopping")
@@ -123,14 +123,14 @@ class Ui_Dialog(object):
     def exeBtnClick(self):
         print("exe버튼이 클릭되었습니다.")
         print("ScreenShot 실행")
-        # AutoScreenShot.capture_screenshot()
+        AutoScreenShot.capture_screenshot()
         print("ScreenShot 완료")
         print("Request 전송")
-        # response = serverRequest.send_request()  ## returns json
-        # for Debug
-        response = {'response_data':0+self.forDebug}
-        self.forDebug=self.forDebug+1
-        print("Response: ", response['response_data'])
+        response = serverRequest.send_request()  ## returns json
+        ## for Debug
+        # response = {'response_data':0+self.forDebug}
+        # self.forDebug=self.forDebug+1
+        # print("Response: ", response['response_data'])
         
     # gif.별 파일 경로 설정
         sticker_map = {
@@ -161,11 +161,11 @@ class Ui_Dialog(object):
             # 5: 'gif/project/angry.gif',
             # 6: 'gif/project/surprise.gif',
             0: [600, 500],
-            1: [530, 400],
+            1: [600, 500],
             2: [600, 500],
-            3: [600, 500],
+            3: [630, 530],
             4: [600, 500],
-            5: [550, 400],
+            5: [600, 400],
             6: [600, 500],
         }
         sticker_xy_val = sticker_xy_map[response['response_data']]
@@ -181,9 +181,9 @@ class Ui_Dialog(object):
             # 6: 'gif/project/surprise.gif',
             0: 0.65,
             1: 0.75,
-            2: 0.5,
-            3: 0.75,
-            4: 0.5,
+            2: 0.75,
+            3: 0.5,
+            4: 0.75,
             5: 1.5,
             6: 0.65,
         }
